@@ -1,0 +1,835 @@
+<!doctype html>
+<!--[if !IE]>
+<html class="no-js non-ie" lang="en-US"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="no-js ie7" lang="en-US"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="no-js ie8" lang="en-US"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="no-js ie9" lang="en-US"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="en-US"> <!--<![endif]-->
+<head>
+<meta charset="UTF-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[(new Date).getTime()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var s=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(s,function(e,t){f[t]=o(l+t,!0,"api")}),f.addPageAction=o(l+"addPageAction",!0),f.setCurrentRouteName=o(l+"routeName",!0),t.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(p+"tracer",[Date.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return t.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){d[t]=o(p+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o){if(!p.aborted){e&&e(n,r,o);for(var i=t(o),a=v(n),u=a.length,c=0;c<u;c++)a[c].apply(i,r);var f=s[w[n]];return f&&f.push([y,n,r,i]),i}}function d(e,t){b[e]=v(e).concat(t)}function v(e){return b[e]||[]}function g(e){return l[e]=l[e]||o(n)}function m(e,t){f(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var b={},w={},y={on:d,emit:n,get:g,listeners:v,context:t,buffer:m,abort:a,aborted:!1};return y}function i(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},l={},p=t.exports=o();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!h++){var e=y.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return f.abort();c(b,function(t,n){e[t]||(e[t]=n)}),u("mark",["onload",a()],null,"api");var n=l.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===l.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=e("ee"),s=window,l=s.document,p="addEventListener",d="attachEvent",v=s.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:v,REQ:s.Request,EV:s.Event,PR:s.Promise,MO:s.MutationObserver},e(1);var m=""+location,b={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1016.min.js"},w=v&&g&&g[p]&&!/CriOS/.test(navigator.userAgent),y=t.exports={offset:a(),origin:m,features:{},xhrWrappable:w};l[p]?(l[p]("DOMContentLoaded",i,!1),s[p]("load",r,!1)):(l[d]("onreadystatechange",o),s[d]("onload",r)),u("mark",["firstbyte",a()],null,"api");var h=0},{}]},{},["loader"]);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+
+<title>Darkmoon &ndash; Poems and translations + political articles, commentary and debate</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v4.3 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="This is the website of Lasha Darkmoon, an anglo-American academic with higher degrees in Classics who lives and works in England."/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://www.darkmoon.me/"/>
+<link rel="next" href="https://www.darkmoon.me/page/2/"/>
+<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/www.darkmoon.me\/","name":"Darkmoon","potentialAction":{"@type":"SearchAction","target":"https:\/\/www.darkmoon.me\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//ws.sharethis.com'/>
+<link rel='dns-prefetch' href='//cdn.jsdelivr.net'/>
+<link rel='dns-prefetch' href='//fonts.googleapis.com'/>
+<link rel='dns-prefetch' href='//s.w.org'/>
+<link rel="alternate" type="application/rss+xml" title="Darkmoon &raquo; Feed" href="https://www.darkmoon.me/feed/"/>
+<link rel="alternate" type="application/rss+xml" title="Darkmoon &raquo; Comments Feed" href="https://www.darkmoon.me/comments/feed/"/>
+		<script type="text/javascript">window._wpemojiSettings={"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.darkmoon.me\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.2"}};!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);</script>
+		<style type="text/css">img.wp-smiley,img.emoji{display:inline!important;border:none!important;box-shadow:none!important;height:1em!important;width:1em!important;margin:0 .07em!important;vertical-align:-.1em!important;background:none!important;padding:0!important}</style>
+<link rel='stylesheet' id='validate-engine-css-css' href='https://www.darkmoon.me/wp-content/plugins/wysija-newsletters/css/A.validationEngine.jquery.css,qver=1.3.pagespeed.cf.jcn-RfgU3K.css' type='text/css' media='all'/>
+<style id='contact-form-7-css' media='all'>div.wpcf7{margin:0;padding:0}div.wpcf7-response-output{margin:2em .5em 1em;padding:.2em 1em}div.wpcf7 .screen-reader-response{position:absolute;overflow:hidden;clip:rect(1px,1px,1px,1px);height:1px;width:1px;margin:0;padding:0;border:0}div.wpcf7-mail-sent-ok{border:2px solid #398f14}div.wpcf7-mail-sent-ng{border:2px solid red}div.wpcf7-spam-blocked{border:2px solid #ffa500}div.wpcf7-validation-errors{border:2px solid #f7e700}.wpcf7-form-control-wrap{position:relative}span.wpcf7-not-valid-tip{color:red;font-size:1em;display:block}.use-floating-validation-tip span.wpcf7-not-valid-tip{position:absolute;top:20%;left:20%;z-index:100;border:1px solid red;background:#fff;padding:.2em .8em}span.wpcf7-list-item{display:inline-block;margin:0 0 0 1em}span.wpcf7-list-item-label::before,span.wpcf7-list-item-label::after{content:" "}.wpcf7-display-none{display:none}div.wpcf7 .ajax-loader{visibility:hidden;display:inline-block;background-image:url(wp-content/plugins/contact-form-7/images/ajax-loader.gif.pagespeed.ce.r5YrN3eaRD.gif);width:16px;height:16px;border:none;padding:0;margin:0 0 0 4px;vertical-align:middle}div.wpcf7 .ajax-loader.is-active{visibility:visible}div.wpcf7 div.ajax-error{display:none}div.wpcf7 .placeheld{color:#888}div.wpcf7 .wpcf7-recaptcha iframe{margin-bottom:0}div.wpcf7 input[type="file"]{cursor:pointer}div.wpcf7 input[type="file"]:disabled{cursor:default}</style>
+<link rel='stylesheet' id='sparkling-bootstrap-css' href='//cdn.jsdelivr.net/bootstrap/3.3.5/css/bootstrap.min.css?ver=4.7.2' type='text/css' media='all'/>
+<link rel='stylesheet' id='sparkling-icons-css' href='//cdn.jsdelivr.net/fontawesome/4.4.0/css/font-awesome.min.css?ver=4.7.2' type='text/css' media='all'/>
+<style id='darkmoon-fonts-css' media='all'>@font-face {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Cabin Bold'), local('Cabin-Bold'), url(https://fonts.gstatic.com/s/cabin/v10/nHiQo1BypvYzt95zlPq1TvesZW2xOQ-xsNqO47m55DA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Libre Baskerville';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Libre Baskerville'), local('LibreBaskerville-Regular'), url(https://fonts.gstatic.com/s/librebaskerville/v4/pR0sBQVcY0JZc_ciXjFsKwAUTJOA6-irsSazDq377BE.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Libre Baskerville';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Libre Baskerville Bold'), local('LibreBaskerville-Bold'), url(https://fonts.gstatic.com/s/librebaskerville/v4/kH7K4InNTm7mmOXXjrA5v_gg4qM5Rpmu0ASAribBgqE.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Libre Baskerville';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Libre Baskerville Italic'), local('LibreBaskerville-Italic'), url(https://fonts.gstatic.com/s/librebaskerville/v4/QHIOz1iKF3bIEzRdDFaf5ZEdosCNS0EvOwDBzJZsz8o.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3aCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(https://fonts.gstatic.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSonF5uFdDttMLvmWuJdhhgs.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(https://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzInF5uFdDttMLvmWuJdhhgs.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'), url(https://fonts.gstatic.com/s/opensans/v13/xjAJXh38I15wypJXxuGMBp0EAVxt0G0biEntp43Qt6E.ttf) format('truetype');
+}
+</style>
+<link rel='stylesheet' id='darkmoon-style-css' href='https://www.darkmoon.me/wp-content/themes/darkmoon/A.style.css,qver=1.3.pagespeed.cf.Yhltsasira.css' type='text/css' media='all'/>
+<script type='text/javascript' src='https://www.darkmoon.me/wp-includes/js/jquery/jquery.js,qver=1.12.4.pagespeed.jm.pPCPAKkkss.js'></script><script>jQueryWP=jQuery;</script>
+<script src="https://www.darkmoon.me/wp-includes,_js,_jquery,_jquery-migrate.min.js,qver==1.4.1+wp-content,_themes,_sparkling,_inc,_js,_functions.min.js,qver==4.7.2+wp-content,_plugins,_google-analyticator,_external-tracking.min.js,qver==6.5.2.pagespeed.jc.IdP4a2MRn8.js"></script><script>eval(mod_pagespeed_mUhmJEi5Tr);</script>
+<script id='st_insights_js' type='text/javascript' src='https://ws.sharethis.com/button/st_insights.js?publisher=4d48b7c5-0ae3-43d4-bfbe-3ff8c17a8ae6&#038;product=simpleshare'></script>
+<script type='text/javascript' src='//cdn.jsdelivr.net/modernizr/2.8.3/modernizr.min.js?ver=4.7.2'></script>
+<script type='text/javascript' src='//cdn.jsdelivr.net/bootstrap/3.3.5/js/bootstrap.min.js?ver=4.7.2'></script>
+<script>eval(mod_pagespeed_W7PcKlqcxd);</script>
+<script>eval(mod_pagespeed_FSvn7pdWb2);</script>
+<link rel='https://api.w.org/' href='https://www.darkmoon.me/wp-json/'/>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.darkmoon.me/xmlrpc.php?rsd"/>
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.darkmoon.me/wp-includes/wlwmanifest.xml"/> 
+<meta name="generator" content="WordPress 4.7.2"/>
+<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script><style type="text/css">.ssba{padding:10px;border:1px solid #59625c;-moz-border-radius:10px;-webkit-border-radius:10px;-khtml-border-radius:10px;border-radius:10px;-o-border-radius:10px}div.ssba{margin-top:40px}.ssba img{width:60px!important;padding:6px;border:0;box-shadow:none!important;display:inline!important;vertical-align:middle}.ssba,.ssba a{text-decoration:none;background:none;font-size:20px}</style><style type="text/css">.entry-content{font-family:Palatino;font-size:20px;font-weight:normal;color:#6b6b6b}</style>		<style type="text/css">.recentcomments a{display:inline!important;padding:0!important;margin:0!important}</style>
+			<style type="text/css">.navbar>.container .navbar-brand{color:#fff}</style>
+	<!-- Google Analytics Tracking by Google Analyticator 6.5.2: http://www.videousermanuals.com/google-analyticator/ -->
+<script type="text/javascript">var analyticsFileTypes=[''];var analyticsSnippet='disabled';var analyticsEventTracking='enabled';</script>
+<script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-19145782-1','auto');ga('send','pageview');</script>
+
+</head>
+
+<body class="home blog custom-background group-blog">
+<a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<div id="page" class="hfeed site">
+
+	<header id="masthead" class="site-header" role="banner">
+		<nav class="navbar navbar-default " role="navigation">
+			<div class="container">
+				<div class="row">
+					<div class="site-navigation-inner col-sm-12">
+						<div class="navbar-header">
+							<button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+
+							
+							<div id="logo">
+								<a href="https://www.darkmoon.me/"><img src="https://www.darkmoon.me/uploads/dm-logo2.png.pagespeed.ce.Elx6NzmYX1.png" height="104" width="389" alt="Darkmoon"/></a>
+							</div><!-- end of #logo -->
+
+							
+							
+						</div>
+						<div class="collapse navbar-collapse navbar-ex1-collapse"><ul id="menu-top-navigation" class="nav navbar-nav"><li id="menu-item-20264" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-20264 dropdown"><a title="About" href="#" data-toggle="dropdown" class="dropdown-toggle">About <span class="caret"></span></a>
+<ul role="menu" class=" dropdown-menu">
+	<li id="menu-item-20373" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20373"><a title="About Lasha Darkmoon" href="https://www.darkmoon.me/about-lasha-darkmoon/">About Lasha Darkmoon</a></li>
+	<li id="menu-item-20372" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20372"><a title="SITE  POLICIES  AND  GUIDELINES" href="https://www.darkmoon.me/site-policies-and-guidelines/">SITE  POLICIES  AND  GUIDELINES</a></li>
+	<li id="menu-item-20376" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20376"><a title="Contact Darkmoon" href="https://www.darkmoon.me/contact-darkmoon/">Contact Darkmoon</a></li>
+</ul>
+</li>
+<li id="menu-item-20265" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20265"><a title="Poems" href="https://www.darkmoon.me/poems/">Poems</a></li>
+<li id="menu-item-20266" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20266"><a title="Translations" href="https://www.darkmoon.me/translations/">Translations</a></li>
+<li id="menu-item-20267" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20267"><a title="Articles" href="https://www.darkmoon.me/prose/">Articles</a></li>
+<li id="menu-item-20268" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20268"><a title="Other Writers" href="https://www.darkmoon.me/other-writers/">Other Writers</a></li>
+<li id="menu-item-20269" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20269"><a title="Darkmoon translated" href="https://www.darkmoon.me/darkmoon-translated/">Darkmoon translated</a></li>
+</ul></div>					</div>
+				</div>
+			</div>
+		</nav><!-- .site-navigation -->
+	</header><!-- #masthead -->
+
+	<div id="content" class="site-content">
+
+		<div class="top-section">
+								</div>
+
+		<div class="container main-content-area">
+            			<div class="row pull-left">
+				<div class="main-content-inner col-sm-12 col-md-8">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+<article id="post-61003" class="post-61003 post type-post status-publish format-standard hentry category-other-writers tag-donald-trump tag-jewish-power tag-rothschilds">
+	<div class="blog-item-wrap">
+				<a href="https://www.darkmoon.me/2017/under-the-heel-of-the-rothschilds/" title="Under the Heel of the Rothschilds">
+			 				</a>
+		<div class="post-inner-content">
+			<header class="entry-header page-header">
+
+				<h2 class="entry-title"><a href="https://www.darkmoon.me/2017/under-the-heel-of-the-rothschilds/" rel="bookmark">Under the Heel of the Rothschilds</a></h2>
+
+								<div class="entry-meta">
+					<span class="byline"> <i class="fa fa-user fa-2x"></i> <span class="author vcard"><a class="url fn n" href="https://www.darkmoon.me/author/admin/">Admin</a></span></span><span class="posted-on"><i class="fa fa-calendar"></i> <a href="https://www.darkmoon.me/2017/under-the-heel-of-the-rothschilds/" rel="bookmark"><time class="entry-date published" datetime="2017-02-25T09:06:29+00:00">February 25, 2017</time><time class="updated" datetime="2017-02-25T09:50:20+00:00">February 25, 2017</time></a></span>				<span class="comments-link"><i class="fa fa-comment-o"></i><a href="https://www.darkmoon.me/2017/under-the-heel-of-the-rothschilds/#comments">110 Comments</a></span>
+				
+				
+				</div><!-- .entry-meta -->
+							</header><!-- .entry-header -->
+
+						<div class="entry-content">
+
+				<p style="text-align: center;"><strong>By <span style="color: #800000;"><em>ARCH STANTON</em></span></strong></p>
+<h4 style="text-align: left;"><img class="aligncenter size-large wp-image-61063" src="https://www.darkmoon.me/uploads/648x322xmaxresdefault-10-1024x509.jpg.pagespeed.ic.0Yw4pMeUtm.jpg" alt="" width="648" height="322" srcset="https://www.darkmoon.me/uploads/maxresdefault-10-1024x509.jpg 1024w, https://www.darkmoon.me/uploads/maxresdefault-10-150x75.jpg 150w, https://www.darkmoon.me/uploads/maxresdefault-10-300x149.jpg 300w, https://www.darkmoon.me/uploads/maxresdefault-10-768x382.jpg 768w, https://www.darkmoon.me/uploads/maxresdefault-10-600x298.jpg 600w, https://www.darkmoon.me/uploads/maxresdefault-10.jpg 1504w" sizes="(max-width: 648px) 100vw, 648px"/></h4>
+<h3 style="text-align: center;"><span style="color: #800000;">UNDER  THE  HEEL  OF  THE  ROTHSCHILDS</span></h3>
+<h5 style="text-align: center;">&#8220;And one man, Donald Trump, is supposed to reverse all this?&#8221;<br/>
+— Arch Stanton</h5>
+<p><strong>That America is on &#8220;life support&#8221; has been clear for a long time—in fact, ever since the Swinging Sixties and the end of the Vietnam war. America’s rapidly deteriorating condition of the late seventies is what led to my search for what happened to the promise of &#8220;the American dream”.</strong><br/>
+ <a href="https://www.darkmoon.me/2017/under-the-heel-of-the-rothschilds/#more-61003" class="more-link"><span aria-label="Continue reading Under the Heel of the Rothschilds">(more&hellip;)</span></a></p>
+
+							</div><!-- .entry-content -->
+					</div>
+	</div>
+</article><!-- #post-## -->
+
+<article id="post-60683" class="post-60683 post type-post status-publish format-standard hentry category-other-writers tag-donald-trump tag-mike-pence tag-the-saker">
+	<div class="blog-item-wrap">
+				<a href="https://www.darkmoon.me/2017/trump-to-be-impeached-for-treason-an-interview-with-the-saker/" title="Trump to be Impeached For Treason? — An Interview with ‘The Saker’">
+			 				</a>
+		<div class="post-inner-content">
+			<header class="entry-header page-header">
+
+				<h2 class="entry-title"><a href="https://www.darkmoon.me/2017/trump-to-be-impeached-for-treason-an-interview-with-the-saker/" rel="bookmark">Trump to be Impeached For Treason? — An Interview with ‘The Saker’</a></h2>
+
+								<div class="entry-meta">
+					<span class="byline"> <i class="fa fa-user fa-2x"></i> <span class="author vcard"><a class="url fn n" href="https://www.darkmoon.me/author/lashadarkmoon/">Lasha Darkmoon</a></span></span><span class="posted-on"><i class="fa fa-calendar"></i> <a href="https://www.darkmoon.me/2017/trump-to-be-impeached-for-treason-an-interview-with-the-saker/" rel="bookmark"><time class="entry-date published" datetime="2017-02-23T06:58:09+00:00">February 23, 2017</time><time class="updated" datetime="2017-02-23T07:31:55+00:00">February 23, 2017</time></a></span>				<span class="comments-link"><i class="fa fa-comment-o"></i><a href="https://www.darkmoon.me/2017/trump-to-be-impeached-for-treason-an-interview-with-the-saker/#comments">114 Comments</a></span>
+				
+				
+				</div><!-- .entry-meta -->
+							</header><!-- .entry-header -->
+
+						<div class="entry-content">
+
+				<p class="entry-header page-header"><span class="edit-link"><a class="post-edit-link" href="https://www.darkmoon.me/wp-admin/post.php?post=60452&amp;action=edit"><span class="screen-reader-text">&#8220;Will Donald Trump Survive the Storms Ahead? — An Interview with ‘The Saker’&#8221;</span></a></span><strong><em>EDITOR J.S. MONTECRISTO:</em> This interview with ‘The Saker’ never took place. But as Lasha Darkmoon explains, every word spoken by the Saker here is an exact quote from the Saker’s own writings. </strong></p>
+<p class="entry-header page-header"><img class="aligncenter size-full wp-image-60693" src="https://www.darkmoon.me/uploads/xf4df0bb34108f031466380f4df87b289-1.jpg.pagespeed.ic.aLWo2QJxYO.jpg" alt="" width="409" height="600" srcset="https://www.darkmoon.me/uploads/f4df0bb34108f031466380f4df87b289-1.jpg 409w, https://www.darkmoon.me/uploads/f4df0bb34108f031466380f4df87b289-1-102x150.jpg 102w, https://www.darkmoon.me/uploads/f4df0bb34108f031466380f4df87b289-1-205x300.jpg 205w" sizes="(max-width: 409px) 100vw, 409px"/></p>
+<p class="entry-header page-header" style="text-align: center;"><strong>“The Trump dream is probably over.</strong><br/>
+<strong>It was beautiful while it lasted.” — The Saker</strong></p>
+<p class="entry-header page-header"> <a href="https://www.darkmoon.me/2017/trump-to-be-impeached-for-treason-an-interview-with-the-saker/#more-60683" class="more-link"><span aria-label="Continue reading Trump to be Impeached For Treason? — An Interview with ‘The Saker’">(more&hellip;)</span></a></p>
+
+							</div><!-- .entry-content -->
+					</div>
+	</div>
+</article><!-- #post-## -->
+
+<article id="post-60503" class="post-60503 post type-post status-publish format-standard hentry category-other-writers tag-donald-trump-press-conference">
+	<div class="blog-item-wrap">
+				<a href="https://www.darkmoon.me/2017/dangerous-delusions-of-the-donald-includes-full-press-conference-video-77-mins/" title="Dangerous Delusions of the Donald: Includes full Press Conference video (77-mins)">
+			 				</a>
+		<div class="post-inner-content">
+			<header class="entry-header page-header">
+
+				<h2 class="entry-title"><a href="https://www.darkmoon.me/2017/dangerous-delusions-of-the-donald-includes-full-press-conference-video-77-mins/" rel="bookmark">Dangerous Delusions of the Donald: Includes full Press Conference video (77-mins)</a></h2>
+
+								<div class="entry-meta">
+					<span class="byline"> <i class="fa fa-user fa-2x"></i> <span class="author vcard"><a class="url fn n" href="https://www.darkmoon.me/author/admin/">Admin</a></span></span><span class="posted-on"><i class="fa fa-calendar"></i> <a href="https://www.darkmoon.me/2017/dangerous-delusions-of-the-donald-includes-full-press-conference-video-77-mins/" rel="bookmark"><time class="entry-date published" datetime="2017-02-22T06:00:16+00:00">February 22, 2017</time><time class="updated" datetime="2017-02-22T00:00:57+00:00">February 22, 2017</time></a></span>				<span class="comments-link"><i class="fa fa-comment-o"></i><a href="https://www.darkmoon.me/2017/dangerous-delusions-of-the-donald-includes-full-press-conference-video-77-mins/#comments">24 Comments</a></span>
+				
+				
+				</div><!-- .entry-meta -->
+							</header><!-- .entry-header -->
+
+						<div class="entry-content">
+
+				<p class="mol-para-with-font" style="text-align: center;"><strong>From <span style="color: #800000;"><em>IAN BIRRELL</em></span></strong><br/>
+<strong>in Washington</strong></p>
+<h6 class="mol-para-with-font" style="text-align: center;"><em>Abridged by Lasha Darkmoon</em></h6>
+<p class="mol-para-with-font"><strong>LD: The article you are about to read will probably make you want to vomit, particularly if you happen to be a staunch supporter of Donald Trump. Even if you dislike Trump, the article  might strike you as grotesquely unfair. This article shows the mainstream media at its venomous worst. It is billed as &#8220;a vivid dispatch from the epicentre of US democracy still quaking from the aftershocks of a petulant, preening and poisonous presidential press conference that has exposed the DANGEROUS  DELUSIONS  OF  THE  DONALD.&#8221;</strong> <a href="https://www.darkmoon.me/2017/dangerous-delusions-of-the-donald-includes-full-press-conference-video-77-mins/#more-60503" class="more-link"><span aria-label="Continue reading Dangerous Delusions of the Donald: Includes full Press Conference video (77-mins)">(more&hellip;)</span></a></p>
+
+							</div><!-- .entry-content -->
+					</div>
+	</div>
+</article><!-- #post-## -->
+
+<article id="post-60220" class="post-60220 post type-post status-publish format-standard hentry category-other-writers">
+	<div class="blog-item-wrap">
+				<a href="https://www.darkmoon.me/2017/why-trump-triumphed-the-awesome-story-of-an-american-hillbilly/" title="Why Trump Triumphed: The Awesome Story of an American Hillbilly">
+			 				</a>
+		<div class="post-inner-content">
+			<header class="entry-header page-header">
+
+				<h2 class="entry-title"><a href="https://www.darkmoon.me/2017/why-trump-triumphed-the-awesome-story-of-an-american-hillbilly/" rel="bookmark">Why Trump Triumphed: The Awesome Story of an American Hillbilly</a></h2>
+
+								<div class="entry-meta">
+					<span class="byline"> <i class="fa fa-user fa-2x"></i> <span class="author vcard"><a class="url fn n" href="https://www.darkmoon.me/author/admin/">Admin</a></span></span><span class="posted-on"><i class="fa fa-calendar"></i> <a href="https://www.darkmoon.me/2017/why-trump-triumphed-the-awesome-story-of-an-american-hillbilly/" rel="bookmark"><time class="entry-date published" datetime="2017-02-21T10:25:23+00:00">February 21, 2017</time><time class="updated" datetime="2017-02-21T10:35:02+00:00">February 21, 2017</time></a></span>				<span class="comments-link"><i class="fa fa-comment-o"></i><a href="https://www.darkmoon.me/2017/why-trump-triumphed-the-awesome-story-of-an-american-hillbilly/#comments">34 Comments</a></span>
+				
+				
+				</div><!-- .entry-meta -->
+							</header><!-- .entry-header -->
+
+						<div class="entry-content">
+
+				<p style="text-align: center;"><strong>By <em><span style="color: #800000;">DOMINIC SANDBROOK</span></em></strong><br/>
+<strong><em>Daily Mail</em></strong><em><strong>. </strong></em></p>
+<h6><img class="alignleft size-medium wp-image-60221" src="https://www.darkmoon.me/uploads/x3D4E02C700000578-0-image-m-3_1487284731588-177x300.jpg.pagespeed.ic.lEa2fXs5VJ.jpg" alt="" width="177" height="300" srcset="https://www.darkmoon.me/uploads/3D4E02C700000578-0-image-m-3_1487284731588-177x300.jpg 177w, https://www.darkmoon.me/uploads/3D4E02C700000578-0-image-m-3_1487284731588-88x150.jpg 88w, https://www.darkmoon.me/uploads/3D4E02C700000578-0-image-m-3_1487284731588.jpg 306w" sizes="(max-width: 177px) 100vw, 177px"/> J. D. Vance <em>(pictured)</em>, is a former U.S. Marine who served in Iraq, studied at Yale Law School and now works for a big Silicon Valley investment firm. This article is a review of his book <em>Hillbilly Elegy </em>in which Vance reveals the grinding poverty of his early years in small town America. It helps to  explain why America&#8217;s underclass voted <em>en masse</em> for Donald Trump.</h6>
+<hr/>
+<p style="text-align: left;"><strong>We are barely four weeks into the presidency of Donald Trump yet already it has led to enough dramatic incidents to last a full term.</strong></p>
+<p style="text-align: left;"><strong>Perhaps never in American history, and certainly not in living memory, has a new presidency opened amid such controversy, with protesting crowds on the streets of cities across the world.</strong></p>
+<p style="text-align: left;"><strong>Yet tempting as it is to join the chorus of execration, it is surely a much better idea to try to understand how on earth America — and by extension, the Western world — got here in the first place.</strong> <a href="https://www.darkmoon.me/2017/why-trump-triumphed-the-awesome-story-of-an-american-hillbilly/#more-60220" class="more-link"><span aria-label="Continue reading Why Trump Triumphed: The Awesome Story of an American Hillbilly">(more&hellip;)</span></a></p>
+
+							</div><!-- .entry-content -->
+					</div>
+	</div>
+</article><!-- #post-## -->
+
+<article id="post-60301" class="post-60301 post type-post status-publish format-standard hentry category-other-writers tag-mike-pence">
+	<div class="blog-item-wrap">
+				<a href="https://www.darkmoon.me/2017/trump-presidency-predicted-to-end-very-soon/" title="Trump Presidency Predicted To End Very Soon">
+			 				</a>
+		<div class="post-inner-content">
+			<header class="entry-header page-header">
+
+				<h2 class="entry-title"><a href="https://www.darkmoon.me/2017/trump-presidency-predicted-to-end-very-soon/" rel="bookmark">Trump Presidency Predicted To End Very Soon</a></h2>
+
+								<div class="entry-meta">
+					<span class="byline"> <i class="fa fa-user fa-2x"></i> <span class="author vcard"><a class="url fn n" href="https://www.darkmoon.me/author/admin/">Admin</a></span></span><span class="posted-on"><i class="fa fa-calendar"></i> <a href="https://www.darkmoon.me/2017/trump-presidency-predicted-to-end-very-soon/" rel="bookmark"><time class="entry-date published" datetime="2017-02-20T06:00:59+00:00">February 20, 2017</time><time class="updated" datetime="2017-02-20T00:54:24+00:00">February 20, 2017</time></a></span>				<span class="comments-link"><i class="fa fa-comment-o"></i><a href="https://www.darkmoon.me/2017/trump-presidency-predicted-to-end-very-soon/#comments">71 Comments</a></span>
+				
+				
+				</div><!-- .entry-meta -->
+							</header><!-- .entry-header -->
+
+						<div class="entry-content">
+
+				<p><strong>Trump’s term will last less than 200 days—the second shortest ever. He will be replaced by Vice President Mike Pence.</strong></p>
+<p style="text-align: center;"><strong>By <em>Ronald L. Feinman</em></strong></p>
+<p><img class="aligncenter size-full wp-image-60303" src="https://www.darkmoon.me/uploads/TrumpandPence1-1.jpg.pagespeed.ce.gY0g1p6Ei1.jpg" alt="" width="604" height="339" srcset="https://www.darkmoon.me/uploads/TrumpandPence1-1.jpg 604w, https://www.darkmoon.me/uploads/TrumpandPence1-1-150x84.jpg 150w, https://www.darkmoon.me/uploads/TrumpandPence1-1-300x168.jpg 300w, https://www.darkmoon.me/uploads/TrumpandPence1-1-600x337.jpg 600w" sizes="(max-width: 604px) 100vw, 604px"/></p>
+<h4 style="text-align: center;"><span style="color: #000000;">PENCE IS PREDICTED TO OUST TRUMP ANY TIME SOON<br/>
+</span></h4>
+<p> <a href="https://www.darkmoon.me/2017/trump-presidency-predicted-to-end-very-soon/#more-60301" class="more-link"><span aria-label="Continue reading Trump Presidency Predicted To End Very Soon">(more&hellip;)</span></a></p>
+
+							</div><!-- .entry-content -->
+					</div>
+	</div>
+</article><!-- #post-## -->
+
+<article id="post-59906" class="post-59906 post type-post status-publish format-standard hentry category-prose category-other-writers tag-donald-trump tag-george-soros">
+	<div class="blog-item-wrap">
+				<a href="https://www.darkmoon.me/2017/who-rules-america-donald-trump-or-the-jews/" title="Who Rules America: Donald Trump or the Jews?">
+			 				</a>
+		<div class="post-inner-content">
+			<header class="entry-header page-header">
+
+				<h2 class="entry-title"><a href="https://www.darkmoon.me/2017/who-rules-america-donald-trump-or-the-jews/" rel="bookmark">Who Rules America: Donald Trump or the Jews?</a></h2>
+
+								<div class="entry-meta">
+					<span class="byline"> <i class="fa fa-user fa-2x"></i> <span class="author vcard"><a class="url fn n" href="https://www.darkmoon.me/author/lashadarkmoon/">Lasha Darkmoon</a></span></span><span class="posted-on"><i class="fa fa-calendar"></i> <a href="https://www.darkmoon.me/2017/who-rules-america-donald-trump-or-the-jews/" rel="bookmark"><time class="entry-date published" datetime="2017-02-17T11:59:31+00:00">February 17, 2017</time><time class="updated" datetime="2017-02-18T16:45:42+00:00">February 18, 2017</time></a></span>				<span class="comments-link"><i class="fa fa-comment-o"></i><a href="https://www.darkmoon.me/2017/who-rules-america-donald-trump-or-the-jews/#comments">178 Comments</a></span>
+				
+				
+				</div><!-- .entry-meta -->
+							</header><!-- .entry-header -->
+
+						<div class="entry-content">
+
+				<p style="text-align: left;"><strong>Is Donald Trump going to betray the people who elected him and turn into a proxy for Hillary Clinton? Or is he going to stand up to his enemies?</strong></p>
+<p><img class="aligncenter wp-image-59916" src="https://www.darkmoon.me/uploads/0-2.jpg.pagespeed.ce.lbTx6bmIrD.jpg" alt="" width="513" height="385" srcset="https://www.darkmoon.me/uploads/0-2.jpg 480w, https://www.darkmoon.me/uploads/0-2-150x113.jpg 150w, https://www.darkmoon.me/uploads/0-2-300x225.jpg 300w" sizes="(max-width: 513px) 100vw, 513px"/></p>
+<p style="text-align: center;"><span style="color: #800000;"><strong>IS PRESIDENT TRUMP A &#8220;NATIONAL SECURITY THREAT&#8221;?</strong></span><br/>
+<strong>Or are the two other men in the picture the real villains?</strong><br/>
+<strong>To find out, read this article.</strong> <a href="https://www.darkmoon.me/2017/who-rules-america-donald-trump-or-the-jews/#more-59906" class="more-link"><span aria-label="Continue reading Who Rules America: Donald Trump or the Jews?">(more&hellip;)</span></a></p>
+
+							</div><!-- .entry-content -->
+					</div>
+	</div>
+</article><!-- #post-## -->
+
+<article id="post-59986" class="post-59986 post type-post status-publish format-standard hentry category-other-writers tag-donald-trump-conspiracy tag-general-flynn">
+	<div class="blog-item-wrap">
+				<a href="https://www.darkmoon.me/2017/flynn-just-the-beginning-if-trump-doesnt-clean-house-video-15-mins/" title="Flynn Just The Beginning If Trump Doesn&#8217;t Clean House (Video, 15 mins) *">
+			 				</a>
+		<div class="post-inner-content">
+			<header class="entry-header page-header">
+
+				<h2 class="entry-title"><a href="https://www.darkmoon.me/2017/flynn-just-the-beginning-if-trump-doesnt-clean-house-video-15-mins/" rel="bookmark">Flynn Just The Beginning If Trump Doesn&#8217;t Clean House (Video, 15 mins) *</a></h2>
+
+								<div class="entry-meta">
+					<span class="byline"> <i class="fa fa-user fa-2x"></i> <span class="author vcard"><a class="url fn n" href="https://www.darkmoon.me/author/admin/">Admin</a></span></span><span class="posted-on"><i class="fa fa-calendar"></i> <a href="https://www.darkmoon.me/2017/flynn-just-the-beginning-if-trump-doesnt-clean-house-video-15-mins/" rel="bookmark"><time class="entry-date published" datetime="2017-02-16T14:44:07+00:00">February 16, 2017</time><time class="updated" datetime="2017-02-18T14:04:05+00:00">February 18, 2017</time></a></span>				<span class="comments-link"><i class="fa fa-comment-o"></i><a href="https://www.darkmoon.me/2017/flynn-just-the-beginning-if-trump-doesnt-clean-house-video-15-mins/#comments">11 Comments</a></span>
+				
+				
+				</div><!-- .entry-meta -->
+							</header><!-- .entry-header -->
+
+						<div class="entry-content">
+
+				<p><strong>We are publishing a controversial article tomorrow on the conspiracy to unseat Donald Trump. This video, containing an enormous amount of complex information, will serve as a suitable introduction.  </strong></p>
+<p><iframe width="648" height="365" src="https://www.youtube.com/embed/I1kY-xdy71o?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+
+							</div><!-- .entry-content -->
+					</div>
+	</div>
+</article><!-- #post-## -->
+
+<article id="post-59831" class="post-59831 post type-post status-publish format-standard hentry category-other-writers tag-donald-trump">
+	<div class="blog-item-wrap">
+				<a href="https://www.darkmoon.me/2017/darkmoon-commenters-debate-donald-trump-is-he-a-lame-duck-or-the-new-white-messiah/" title="Darkmoon Commenters Debate Donald Trump: Is he a Lame Duck or the New White Messiah?">
+			 				</a>
+		<div class="post-inner-content">
+			<header class="entry-header page-header">
+
+				<h2 class="entry-title"><a href="https://www.darkmoon.me/2017/darkmoon-commenters-debate-donald-trump-is-he-a-lame-duck-or-the-new-white-messiah/" rel="bookmark">Darkmoon Commenters Debate Donald Trump: Is he a Lame Duck or the New White Messiah?</a></h2>
+
+								<div class="entry-meta">
+					<span class="byline"> <i class="fa fa-user fa-2x"></i> <span class="author vcard"><a class="url fn n" href="https://www.darkmoon.me/author/admin/">Admin</a></span></span><span class="posted-on"><i class="fa fa-calendar"></i> <a href="https://www.darkmoon.me/2017/darkmoon-commenters-debate-donald-trump-is-he-a-lame-duck-or-the-new-white-messiah/" rel="bookmark"><time class="entry-date published" datetime="2017-02-15T16:28:29+00:00">February 15, 2017</time><time class="updated" datetime="2017-02-15T19:40:50+00:00">February 15, 2017</time></a></span>				<span class="comments-link"><i class="fa fa-comment-o"></i><a href="https://www.darkmoon.me/2017/darkmoon-commenters-debate-donald-trump-is-he-a-lame-duck-or-the-new-white-messiah/#comments">78 Comments</a></span>
+				
+				
+				</div><!-- .entry-meta -->
+							</header><!-- .entry-header -->
+
+						<div class="entry-content">
+
+				<p style="text-align: center;"><em><strong>Edited by Lasha Darkmoon</strong></em></p>
+<h5>The following comments on the current Trump situation form a cross-section of the best comments we have received. Sincere apologies if your comment has been overlooked or, at times, truncated and rephrased in the interests of brevity and clarity.</h5>
+<h3 style="text-align: center;"><span style="color: #800000;">WHAT&#8217;S  GOING  ON?</span></h3>
+<p><img class="aligncenter size-full wp-image-59833" src="https://www.darkmoon.me/uploads/x2016-12-21_202505.jpg.pagespeed.ic.5IxGnanAHS.jpg" alt="" width="620" height="350" srcset="https://www.darkmoon.me/uploads/2016-12-21_202505.jpg 620w, https://www.darkmoon.me/uploads/2016-12-21_202505-150x85.jpg 150w, https://www.darkmoon.me/uploads/2016-12-21_202505-300x169.jpg 300w, https://www.darkmoon.me/uploads/2016-12-21_202505-600x339.jpg 600w" sizes="(max-width: 620px) 100vw, 620px"/></p>
+<h3 style="text-align: center;"><span style="color: #800000;">IS  IT  TO  BE  WAR  OR  PEACE?  </span></h3>
+<p> <a href="https://www.darkmoon.me/2017/darkmoon-commenters-debate-donald-trump-is-he-a-lame-duck-or-the-new-white-messiah/#more-59831" class="more-link"><span aria-label="Continue reading Darkmoon Commenters Debate Donald Trump: Is he a Lame Duck or the New White Messiah?">(more&hellip;)</span></a></p>
+
+							</div><!-- .entry-content -->
+					</div>
+	</div>
+</article><!-- #post-## -->
+
+<article id="post-59808" class="post-59808 post type-post status-publish format-standard hentry category-other-writers tag-trump-presidency">
+	<div class="blog-item-wrap">
+				<a href="https://www.darkmoon.me/2017/trump-presidency-ends-in-ruins-its-all-over/" title="Trump Presidency Ends In Ruins — &#8216;It&#8217;s All Over!&#8217;">
+			 				</a>
+		<div class="post-inner-content">
+			<header class="entry-header page-header">
+
+				<h2 class="entry-title"><a href="https://www.darkmoon.me/2017/trump-presidency-ends-in-ruins-its-all-over/" rel="bookmark">Trump Presidency Ends In Ruins — &#8216;It&#8217;s All Over!&#8217;</a></h2>
+
+								<div class="entry-meta">
+					<span class="byline"> <i class="fa fa-user fa-2x"></i> <span class="author vcard"><a class="url fn n" href="https://www.darkmoon.me/author/admin/">Admin</a></span></span><span class="posted-on"><i class="fa fa-calendar"></i> <a href="https://www.darkmoon.me/2017/trump-presidency-ends-in-ruins-its-all-over/" rel="bookmark"><time class="entry-date published" datetime="2017-02-14T15:12:21+00:00">February 14, 2017</time><time class="updated" datetime="2017-02-14T15:27:47+00:00">February 14, 2017</time></a></span>				<span class="comments-link"><i class="fa fa-comment-o"></i><a href="https://www.darkmoon.me/2017/trump-presidency-ends-in-ruins-its-all-over/#comments">82 Comments</a></span>
+				
+				
+				</div><!-- .entry-meta -->
+							</header><!-- .entry-header -->
+
+						<div class="entry-content">
+
+				<p style="text-align: center;"><em><strong>&#8220;It’s over for Trump and the hopes of millions of people in the USA<br/>
+and the rest of the world.  I see very dark clouds on the horizon.&#8221;<br/>
+</strong></em></p>
+<p style="text-align: center;"><strong>By <span style="color: #800000;"><em>THE SAKER</em></span></strong></p>
+<p><strong>Less than a month ago <a href="http://thesaker.is/a-color-revolution-is-under-way-in-the-united-states/">I warned that a ‘color revolution ‘ was taking place in the USA</a>.  My first element of proof was the so-called “investigation” which the CIA, FBI, NSA and others were conducting against President Trump’s candidate to become National Security Advisor, General Flynn.  Tonight, the plot to get rid of Flynn has finally succeeded and <a href="http://www.bbc.com/news/world-us-canada-38965557">General Flynn had to offer his resignation</a>.  Trump accepted it.</strong></p>
+<p><img class="aligncenter size-full wp-image-59809" src="https://www.darkmoon.me/uploads/image-927710-640_panofree-rdmm-927710.jpg.pagespeed.ce.VRledbtT4a.jpg" alt="" width="640" height="360" srcset="https://www.darkmoon.me/uploads/image-927710-640_panofree-rdmm-927710.jpg 640w, https://www.darkmoon.me/uploads/image-927710-640_panofree-rdmm-927710-150x84.jpg 150w, https://www.darkmoon.me/uploads/image-927710-640_panofree-rdmm-927710-300x169.jpg 300w, https://www.darkmoon.me/uploads/image-927710-640_panofree-rdmm-927710-600x338.jpg 600w" sizes="(max-width: 640px) 100vw, 640px"/></p>
+<p style="text-align: center;"><span style="color: #800000;"><strong>GENERAL MICHAEL FLYNN, TRUMP&#8217;S NATIONAL SECURITY ADVISOR</strong></span><br/>
+<span style="color: #000000;"><strong>forced to resign after exactly three and a half weeks in office,<br/>
+proving Trump is not in charge and is controlled by his &#8216;Controllers&#8217;.<br/>
+</strong></span> <a href="https://www.darkmoon.me/2017/trump-presidency-ends-in-ruins-its-all-over/#more-59808" class="more-link"><span aria-label="Continue reading Trump Presidency Ends In Ruins — &#8216;It&#8217;s All Over!&#8217;">(more&hellip;)</span></a></p>
+
+							</div><!-- .entry-content -->
+					</div>
+	</div>
+</article><!-- #post-## -->
+
+<article id="post-59781" class="post-59781 post type-post status-publish format-standard hentry category-other-writers tag-war-with-iran tag-ww-iii">
+	<div class="blog-item-wrap">
+				<a href="https://www.darkmoon.me/2017/eleven-ominous-signs-that-we-are-racing-towards-war-with-iran/" title="Eleven Ominous Signs That We Are Racing Towards War with Iran">
+			 				</a>
+		<div class="post-inner-content">
+			<header class="entry-header page-header">
+
+				<h2 class="entry-title"><a href="https://www.darkmoon.me/2017/eleven-ominous-signs-that-we-are-racing-towards-war-with-iran/" rel="bookmark">Eleven Ominous Signs That We Are Racing Towards War with Iran</a></h2>
+
+								<div class="entry-meta">
+					<span class="byline"> <i class="fa fa-user fa-2x"></i> <span class="author vcard"><a class="url fn n" href="https://www.darkmoon.me/author/admin/">Admin</a></span></span><span class="posted-on"><i class="fa fa-calendar"></i> <a href="https://www.darkmoon.me/2017/eleven-ominous-signs-that-we-are-racing-towards-war-with-iran/" rel="bookmark"><time class="entry-date published" datetime="2017-02-14T06:00:27+00:00">February 14, 2017</time><time class="updated" datetime="2017-02-13T23:18:05+00:00">February 13, 2017</time></a></span>				<span class="comments-link"><i class="fa fa-comment-o"></i><a href="https://www.darkmoon.me/2017/eleven-ominous-signs-that-we-are-racing-towards-war-with-iran/#comments">25 Comments</a></span>
+				
+				
+				</div><!-- .entry-meta -->
+							</header><!-- .entry-header -->
+
+						<div class="entry-content">
+
+				<h5 style="text-align: center;"><strong><em>. . . and war with Iran would inevitably lead to WWIII, involving Russia and China</em></strong></h5>
+<p style="text-align: center;"><strong>By MAKIA FREEMAN</strong><br/>
+<strong>Global Research, February 12, 2017</strong></p>
+<p><img class="aligncenter size-full wp-image-59786" src="https://www.darkmoon.me/uploads/xsddefault-1.jpg.pagespeed.ic.rNJImVnw7J.jpg" alt="" width="640" height="480" srcset="https://www.darkmoon.me/uploads/sddefault-1.jpg 640w, https://www.darkmoon.me/uploads/sddefault-1-150x113.jpg 150w, https://www.darkmoon.me/uploads/sddefault-1-300x225.jpg 300w, https://www.darkmoon.me/uploads/sddefault-1-600x450.jpg 600w" sizes="(max-width: 640px) 100vw, 640px"/></p>
+<p><strong>War with Iran is in the cards as the administration of US President Donald Trump takes an overly aggressive stance against the Islamic Republic. </strong> <a href="https://www.darkmoon.me/2017/eleven-ominous-signs-that-we-are-racing-towards-war-with-iran/#more-59781" class="more-link"><span aria-label="Continue reading Eleven Ominous Signs That We Are Racing Towards War with Iran">(more&hellip;)</span></a></p>
+
+							</div><!-- .entry-content -->
+					</div>
+	</div>
+</article><!-- #post-## -->
+
+<article id="post-59699" class="post-59699 post type-post status-publish format-standard hentry category-other-writers tag-donald-trump">
+	<div class="blog-item-wrap">
+				<a href="https://www.darkmoon.me/2017/the-case-against-donald-trump-do-not-be-fooled/" title="The Case Against Donald Trump: &#8216;Do Not Be Fooled!&#8217;">
+			 				</a>
+		<div class="post-inner-content">
+			<header class="entry-header page-header">
+
+				<h2 class="entry-title"><a href="https://www.darkmoon.me/2017/the-case-against-donald-trump-do-not-be-fooled/" rel="bookmark">The Case Against Donald Trump: &#8216;Do Not Be Fooled!&#8217;</a></h2>
+
+								<div class="entry-meta">
+					<span class="byline"> <i class="fa fa-user fa-2x"></i> <span class="author vcard"><a class="url fn n" href="https://www.darkmoon.me/author/admin/">Admin</a></span></span><span class="posted-on"><i class="fa fa-calendar"></i> <a href="https://www.darkmoon.me/2017/the-case-against-donald-trump-do-not-be-fooled/" rel="bookmark"><time class="entry-date published" datetime="2017-02-13T07:00:34+00:00">February 13, 2017</time><time class="updated" datetime="2017-02-13T14:18:55+00:00">February 13, 2017</time></a></span>				<span class="comments-link"><i class="fa fa-comment-o"></i><a href="https://www.darkmoon.me/2017/the-case-against-donald-trump-do-not-be-fooled/#comments">119 Comments</a></span>
+				
+				
+				</div><!-- .entry-meta -->
+							</header><!-- .entry-header -->
+
+						<div class="entry-content">
+
+				<h5 style="text-align: left;">LD:  Harold Smith appears to have been a Trump supporter to start with, like so many others who couldn&#8217;t bear the idea of Hillary Clinton in the White House. Being a realist, however, Harold has weighed up the situation by examining the facts on the ground and has arrived at a disquieting conclusion. Trump is a fraudster, he believes, a corrupt politician who is most unlikely to &#8220;make America great again&#8221;. In fact, if the Iran situation is allowed to escalate, leading to an all-out war with Russia, the world could be heading for catastrophe — and Trump would be to blame for doing nothing to stop it.</h5>
+<p style="text-align: center;"><strong>By <span style="color: #800000;">HAROLD SMITH</span></strong></p>
+<p style="text-align: center;"><em><b>in dialogue with Ungenius</b></em></p>
+<p style="text-align: left;"><img class="aligncenter size-full wp-image-59700" src="https://www.darkmoon.me/uploads/apbrx5.jpg.pagespeed.ce.gCibJF_xNC.jpg" alt="" width="631" height="355" srcset="https://www.darkmoon.me/uploads/apbrx5.jpg 631w, https://www.darkmoon.me/uploads/apbrx5-150x84.jpg 150w, https://www.darkmoon.me/uploads/apbrx5-300x169.jpg 300w, https://www.darkmoon.me/uploads/apbrx5-600x338.jpg 600w" sizes="(max-width: 631px) 100vw, 631px"/></p>
+<p> <a href="https://www.darkmoon.me/2017/the-case-against-donald-trump-do-not-be-fooled/#more-59699" class="more-link"><span aria-label="Continue reading The Case Against Donald Trump: &#8216;Do Not Be Fooled!&#8217;">(more&hellip;)</span></a></p>
+
+							</div><!-- .entry-content -->
+					</div>
+	</div>
+</article><!-- #post-## -->
+
+<article id="post-58430" class="post-58430 post type-post status-publish format-standard hentry category-prose category-other-writers tag-internet-pornography tag-pedophilia tag-sexting tag-sexualization-of-children">
+	<div class="blog-item-wrap">
+				<a href="https://www.darkmoon.me/2017/in-satans-playground-internet-pornography-and-its-effect-on-children/" title="In Satan&#8217;s Playground: Internet Pornography and its Effect on Children">
+			 				</a>
+		<div class="post-inner-content">
+			<header class="entry-header page-header">
+
+				<h2 class="entry-title"><a href="https://www.darkmoon.me/2017/in-satans-playground-internet-pornography-and-its-effect-on-children/" rel="bookmark">In Satan&#8217;s Playground: Internet Pornography and its Effect on Children</a></h2>
+
+								<div class="entry-meta">
+					<span class="byline"> <i class="fa fa-user fa-2x"></i> <span class="author vcard"><a class="url fn n" href="https://www.darkmoon.me/author/lashadarkmoon/">Lasha Darkmoon</a></span></span><span class="posted-on"><i class="fa fa-calendar"></i> <a href="https://www.darkmoon.me/2017/in-satans-playground-internet-pornography-and-its-effect-on-children/" rel="bookmark"><time class="entry-date published" datetime="2017-02-11T07:00:45+00:00">February 11, 2017</time><time class="updated" datetime="2017-02-10T23:39:32+00:00">February 10, 2017</time></a></span>				<span class="comments-link"><i class="fa fa-comment-o"></i><a href="https://www.darkmoon.me/2017/in-satans-playground-internet-pornography-and-its-effect-on-children/#comments">89 Comments</a></span>
+				
+				
+				</div><!-- .entry-meta -->
+							</header><!-- .entry-header -->
+
+						<div class="entry-content">
+
+				<p><strong>Thanks to recent technological advances, vast numbers of children are now hopelessly addicted to internet pornography. What can we do about it? </strong></p>
+<p><img class="aligncenter size-full wp-image-59597" src="https://www.darkmoon.me/uploads/xnews_67600_1478925000.jpg.pagespeed.ic.ZN3lZCOZA4.jpg" alt="" width="600" height="400" srcset="https://www.darkmoon.me/uploads/news_67600_1478925000.jpg 600w, https://www.darkmoon.me/uploads/news_67600_1478925000-150x100.jpg 150w, https://www.darkmoon.me/uploads/news_67600_1478925000-300x200.jpg 300w" sizes="(max-width: 600px) 100vw, 600px"/></p>
+<p style="text-align: left;"><strong>&#8220;What I saw truly horrified me. Night after night, as I scrolled past thousands of fresh young faces, I found an unedifying <a href="http://www.dailymail.co.uk/news/article-4165508/Inside-seedy-world-Tinder-teens.html">meat market</a> where children are reduced to little more than sexual objects.&#8221; — Tanith Carey, <em>Daily Mail</em></strong></p>
+<p> <a href="https://www.darkmoon.me/2017/in-satans-playground-internet-pornography-and-its-effect-on-children/#more-58430" class="more-link"><span aria-label="Continue reading In Satan&#8217;s Playground: Internet Pornography and its Effect on Children">(more&hellip;)</span></a></p>
+
+							</div><!-- .entry-content -->
+					</div>
+	</div>
+</article><!-- #post-## -->
+
+<article id="post-57110" class="post-57110 post type-post status-publish format-standard hentry category-other-writers tag-peter-sarstedt tag-where-do-you-go-to-my-lovely">
+	<div class="blog-item-wrap">
+				<a href="https://www.darkmoon.me/2017/in-memory-of-peter-sarstedt-and-the-beautiful-people-of-the-1960s/" title="In Memory of Peter Sarstedt and the Beautiful People of the 1960s">
+			 				</a>
+		<div class="post-inner-content">
+			<header class="entry-header page-header">
+
+				<h2 class="entry-title"><a href="https://www.darkmoon.me/2017/in-memory-of-peter-sarstedt-and-the-beautiful-people-of-the-1960s/" rel="bookmark">In Memory of Peter Sarstedt and the Beautiful People of the 1960s</a></h2>
+
+								<div class="entry-meta">
+					<span class="byline"> <i class="fa fa-user fa-2x"></i> <span class="author vcard"><a class="url fn n" href="https://www.darkmoon.me/author/admin/">Admin</a></span></span><span class="posted-on"><i class="fa fa-calendar"></i> <a href="https://www.darkmoon.me/2017/in-memory-of-peter-sarstedt-and-the-beautiful-people-of-the-1960s/" rel="bookmark"><time class="entry-date published" datetime="2017-02-10T07:00:25+00:00">February 10, 2017</time><time class="updated" datetime="2017-02-10T01:25:04+00:00">February 10, 2017</time></a></span>				<span class="comments-link"><i class="fa fa-comment-o"></i><a href="https://www.darkmoon.me/2017/in-memory-of-peter-sarstedt-and-the-beautiful-people-of-the-1960s/#comments">57 Comments</a></span>
+				
+				
+				</div><!-- .entry-meta -->
+							</header><!-- .entry-header -->
+
+						<div class="entry-content">
+
+				<p><em><strong>1969 . . .  the cusp of a new Golden Age . . .  the era of &#8216;free love&#8217;, the Flower children, and Where Do You Go To My Lovely.</strong></em></p>
+<p style="text-align: center;"><strong>By <span style="color: #800000;"><em>RAY CONNOLLY<br/>
+</em></span></strong></p>
+<h6 style="text-align: center;"><strong>Abridged by Lasha Darkmoon</strong><br/>
+<em><strong>(Includes one of the most unforgettable hit songs of the 1960s)</strong></em></h6>
+<p class="mol-para-with-font"><strong><img class="alignleft size-medium wp-image-57112" src="https://www.darkmoon.me/uploads/xPETER_SARSTEDT_WHEREDOYOUGOTOMYLOVELY-287190-285x300.jpg.pagespeed.ic.h5fnU9Jau9.jpg" alt="" width="285" height="300" srcset="https://www.darkmoon.me/uploads/PETER_SARSTEDT_WHEREDOYOUGOTOMYLOVELY-287190-285x300.jpg 285w, https://www.darkmoon.me/uploads/PETER_SARSTEDT_WHEREDOYOUGOTOMYLOVELY-287190-143x150.jpg 143w, https://www.darkmoon.me/uploads/PETER_SARSTEDT_WHEREDOYOUGOTOMYLOVELY-287190.jpg 475w" sizes="(max-width: 285px) 100vw, 285px"/></strong></p>
+<p class="mol-para-with-font"><strong><em>PETER SARSTEDT, defined by one classic song released in 1969; he died a few weeks ago at the age of 75.</em></strong></p>
+<p class="mol-para-with-font"><strong>Many popular songs catch the feeling of the time. That’s why they become popular. But few songs are able to freeze that moment to the extent that nearly half a century after we first heard it we can sing along to the lyrics.</strong></p>
+<p class="mol-para-with-font"><strong>That was what Peter Sarstedt, who died on 8 January, aged 75, achieved with his No 1 smash <em>Where Do You Go To (My Lovely). </em>And what a song! Sounding unlike anything else that was around in 1969, it topped the charts all over Europe and in Australia, and was a hit even in Japan.</strong> <a href="https://www.darkmoon.me/2017/in-memory-of-peter-sarstedt-and-the-beautiful-people-of-the-1960s/#more-57110" class="more-link"><span aria-label="Continue reading In Memory of Peter Sarstedt and the Beautiful People of the 1960s">(more&hellip;)</span></a></p>
+
+							</div><!-- .entry-content -->
+					</div>
+	</div>
+</article><!-- #post-## -->
+
+<article id="post-59453" class="post-59453 post type-post status-publish format-standard hentry category-other-writers tag-attack-on-christianity">
+	<div class="blog-item-wrap">
+				<a href="https://www.darkmoon.me/2017/the-futile-efforts-of-donald-trump/" title="The Futile Efforts of Donald Trump">
+			 				</a>
+		<div class="post-inner-content">
+			<header class="entry-header page-header">
+
+				<h2 class="entry-title"><a href="https://www.darkmoon.me/2017/the-futile-efforts-of-donald-trump/" rel="bookmark">The Futile Efforts of Donald Trump</a></h2>
+
+								<div class="entry-meta">
+					<span class="byline"> <i class="fa fa-user fa-2x"></i> <span class="author vcard"><a class="url fn n" href="https://www.darkmoon.me/author/admin/">Admin</a></span></span><span class="posted-on"><i class="fa fa-calendar"></i> <a href="https://www.darkmoon.me/2017/the-futile-efforts-of-donald-trump/" rel="bookmark"><time class="entry-date published" datetime="2017-02-09T06:56:58+00:00">February 9, 2017</time><time class="updated" datetime="2017-02-09T01:58:45+00:00">February 9, 2017</time></a></span>				<span class="comments-link"><i class="fa fa-comment-o"></i><a href="https://www.darkmoon.me/2017/the-futile-efforts-of-donald-trump/#comments">111 Comments</a></span>
+				
+				
+				</div><!-- .entry-meta -->
+							</header><!-- .entry-header -->
+
+						<div class="entry-content">
+
+				<p style="text-align: center;"><strong>By <span style="color: #800000;"><em>ISRAEL SHAMIR</em></span></strong></p>
+<p><strong>LD: In this article, Israel Shamir advances a startling thesis: the reason the Jews are so anxious to swamp the West with Muslim migrants—the more unruly, extremist, and fanatical these migrants the better—is that they want to use these Muslims as a tool to destroy Christianity with. </strong></p>
+<p><strong>They can&#8217;t afford to do this themselves; that would make them look too bad and give them an image problem. So instead, employing a more devious and underhand tactic, they plan to egg on these Muslim zealots to do their dirty work for them. The Muslim jihadis, in other words, will one day take on the role of the Jews&#8217; unpaid Christ killers. Or, to use Shamir&#8217;s words, their &#8220;silent partners&#8221;.  </strong></p>
+<p><strong>All this stems from a pathological hatred of Christianity that has burned in the Jewish psyche like a small flame for the last 2000 years and shows no signs of abating. Christianity, in short, is the target here; it lies in the Jews&#8217; cross-hairs. This is what this Muslim invasion of the West, courtesy of the Jews, is really all about. </strong></p>
+<p><strong>An interesting thesis. I think Shamir could be right. [LD]</strong></p>
+<p><img class="aligncenter size-full wp-image-59454" src="https://www.darkmoon.me/uploads/xshutterstock_568689853-600x400.jpg.pagespeed.ic._UIiMoLwAH.jpg" alt="" width="600" height="400" srcset="https://www.darkmoon.me/uploads/shutterstock_568689853-600x400.jpg 600w, https://www.darkmoon.me/uploads/shutterstock_568689853-600x400-150x100.jpg 150w, https://www.darkmoon.me/uploads/shutterstock_568689853-600x400-300x200.jpg 300w" sizes="(max-width: 600px) 100vw, 600px"/></p>
+<p><strong>President Trump had paid a hefty advance to the Jews. He did (almost) all they wanted for their Jewish state: he promised to move the US embassy to the occupied Jerusalem thus legalising their annexation of the holy city; he condoned their illegal settlements, he gave them starred positions in his administration; he told the Palestinians to drop their case in the ICC or else, he even threatened Iran with war. All that in vain. Jewish organisations and Jewish media attack Trump without slightest hesitation and consideration. His first step in curbing the soft invasion wave had been met with uniform Jewish vehemence.</strong> <a href="https://www.darkmoon.me/2017/the-futile-efforts-of-donald-trump/#more-59453" class="more-link"><span aria-label="Continue reading The Futile Efforts of Donald Trump">(more&hellip;)</span></a></p>
+
+							</div><!-- .entry-content -->
+					</div>
+	</div>
+</article><!-- #post-## -->
+
+<article id="post-59349" class="post-59349 post type-post status-publish format-standard hentry category-other-writers">
+	<div class="blog-item-wrap">
+				<a href="https://www.darkmoon.me/2017/is-the-trump-administration-already-over/" title="Is The Trump Administration Already Over?">
+			 				</a>
+		<div class="post-inner-content">
+			<header class="entry-header page-header">
+
+				<h2 class="entry-title"><a href="https://www.darkmoon.me/2017/is-the-trump-administration-already-over/" rel="bookmark">Is The Trump Administration Already Over?</a></h2>
+
+								<div class="entry-meta">
+					<span class="byline"> <i class="fa fa-user fa-2x"></i> <span class="author vcard"><a class="url fn n" href="https://www.darkmoon.me/author/paulroberts/">Paul Craig Roberts</a></span></span><span class="posted-on"><i class="fa fa-calendar"></i> <a href="https://www.darkmoon.me/2017/is-the-trump-administration-already-over/" rel="bookmark"><time class="entry-date published" datetime="2017-02-08T01:45:52+00:00">February 8, 2017</time></a></span>				<span class="comments-link"><i class="fa fa-comment-o"></i><a href="https://www.darkmoon.me/2017/is-the-trump-administration-already-over/#comments">87 Comments</a></span>
+				
+				
+				</div><!-- .entry-meta -->
+							</header><!-- .entry-header -->
+
+						<div class="entry-content">
+
+				<p style="text-align: center;"><strong>By Paul Craig Roberts</strong></p>
+<p><img class="aligncenter size-full wp-image-59350" src="https://www.darkmoon.me/uploads/CfqKTEyVIAAPDd9.jpg.pagespeed.ce.2PbviFLN0d.jpg" alt="" width="600" height="300" srcset="https://www.darkmoon.me/uploads/CfqKTEyVIAAPDd9.jpg 600w, https://www.darkmoon.me/uploads/CfqKTEyVIAAPDd9-150x75.jpg 150w, https://www.darkmoon.me/uploads/CfqKTEyVIAAPDd9-300x150.jpg 300w" sizes="(max-width: 600px) 100vw, 600px"/></p>
+<p><strong>Hopes for the Trump administration are not burning brightly. Trump’s military chief, Gen. Mattis, is turning out to be true to his “mad dog” nickname. He has just declared that Iran “is <a href="https://sputniknews.com/politics/201702041050338034-mattis-iran-terrorism/">the single biggest state sponsor of terrorism in the world</a>.”</strong> <a href="https://www.darkmoon.me/2017/is-the-trump-administration-already-over/#more-59349" class="more-link"><span aria-label="Continue reading Is The Trump Administration Already Over?">(more&hellip;)</span></a></p>
+
+							</div><!-- .entry-content -->
+					</div>
+	</div>
+</article><!-- #post-## -->
+
+	<nav class="navigation pagination" role="navigation">
+		<h2 class="screen-reader-text">Posts navigation</h2>
+		<div class="nav-links"><span class='page-numbers current'>1</span>
+<a class='page-numbers' href='https://www.darkmoon.me/page/2/'>2</a>
+<span class="page-numbers dots">&hellip;</span>
+<a class='page-numbers' href='https://www.darkmoon.me/page/65/'>65</a>
+<a class="next page-numbers" href="https://www.darkmoon.me/page/2/">Older posts <i class="fa fa-chevron-right"></i></a></div>
+	</nav>
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+</div>
+	<div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
+		<div class="well">
+						<aside id="wysija-2" class="widget widget_wysija"><h3 class="widget-title">E-mail Newsletter</h3><div class="widget_wysija_cont"><div id="msg-form-wysija-2" class="wysija-msg ajax"></div><form id="form-wysija-2" method="post" action="#wysija" class="widget_wysija">
+
+Subscribe to get important new posts and other updates via our occasional newsletter.
+<p class="wysija-paragraph">
+    
+    
+    	<input type="text" name="wysija[user][email]" class="wysija-input validate[required,custom[email]]" title="Email" placeholder="Email" value=""/>
+    
+    
+    
+    <span class="abs-req">
+        <input type="text" name="wysija[user][abs][email]" class="wysija-input validated[abs][email]" value=""/>
+    </span>
+    
+</p>
+<input class="wysija-submit wysija-submit-field" type="submit" value="Subscribe"/>
+
+    <input type="hidden" name="form_id" value="1"/>
+    <input type="hidden" name="action" value="save"/>
+    <input type="hidden" name="controller" value="subscribers"/>
+    <input type="hidden" value="1" name="wysija-page"/>
+
+    
+        <input type="hidden" name="wysija[user_list][list_ids]" value="3"/>
+    
+ </form></div></aside><aside id="search-3" class="widget widget_search"><h3 class="widget-title">Search Darkmoon</h3>
+<form role="search" method="get" class="form-search" action="https://www.darkmoon.me/">
+  <div class="input-group">
+  	<label class="screen-reader-text" for="s">Search for:</label>
+    <input type="text" class="form-control search-query" placeholder="Search&hellip;" value="" name="s" title="Search for:"/>
+    <span class="input-group-btn">
+      <button type="submit" class="btn btn-default" name="submit" id="searchsubmit" value="Search"><span class="glyphicon glyphicon-search"></span></button>
+    </span>
+  </div>
+</form></aside>		<aside id="recent-posts-4" class="widget widget_recent_entries">		<h3 class="widget-title">Recent Posts</h3>		<ul>
+					<li>
+				<a href="https://www.darkmoon.me/2017/under-the-heel-of-the-rothschilds/">Under the Heel of the Rothschilds</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/trump-to-be-impeached-for-treason-an-interview-with-the-saker/">Trump to be Impeached For Treason? — An Interview with ‘The Saker’</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/dangerous-delusions-of-the-donald-includes-full-press-conference-video-77-mins/">Dangerous Delusions of the Donald: Includes full Press Conference video (77-mins)</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/why-trump-triumphed-the-awesome-story-of-an-american-hillbilly/">Why Trump Triumphed: The Awesome Story of an American Hillbilly</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/trump-presidency-predicted-to-end-very-soon/">Trump Presidency Predicted To End Very Soon</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/who-rules-america-donald-trump-or-the-jews/">Who Rules America: Donald Trump or the Jews?</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/flynn-just-the-beginning-if-trump-doesnt-clean-house-video-15-mins/">Flynn Just The Beginning If Trump Doesn&#8217;t Clean House (Video, 15 mins) *</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/darkmoon-commenters-debate-donald-trump-is-he-a-lame-duck-or-the-new-white-messiah/">Darkmoon Commenters Debate Donald Trump: Is he a Lame Duck or the New White Messiah?</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/trump-presidency-ends-in-ruins-its-all-over/">Trump Presidency Ends In Ruins — &#8216;It&#8217;s All Over!&#8217;</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/eleven-ominous-signs-that-we-are-racing-towards-war-with-iran/">Eleven Ominous Signs That We Are Racing Towards War with Iran</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/the-case-against-donald-trump-do-not-be-fooled/">The Case Against Donald Trump: &#8216;Do Not Be Fooled!&#8217;</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/in-satans-playground-internet-pornography-and-its-effect-on-children/">In Satan&#8217;s Playground: Internet Pornography and its Effect on Children</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/in-memory-of-peter-sarstedt-and-the-beautiful-people-of-the-1960s/">In Memory of Peter Sarstedt and the Beautiful People of the 1960s</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/the-futile-efforts-of-donald-trump/">The Futile Efforts of Donald Trump</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/is-the-trump-administration-already-over/">Is The Trump Administration Already Over?</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/trump-is-doing-everything-he-said-he-would-except-on-israel/">Trump is doing everything he said he would — except on Israel</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/the-fabulous-wealth-of-the-rothschilds/">The Fabulous Wealth of the Rothschilds</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/whos-the-real-enemy-muslims-or-jews/">Who&#8217;s The Real Enemy: Muslims or Jews?</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/palestinian-rage-moving-us-embassy-to-jerusalem-will-cause-all-out-war/">Palestinian Rage: Moving US Embassy to Jerusalem &#8216;will cause all-out war&#8217;</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/freedom-to-offend-everyone-but-the-jews/">Freedom to offend everyone but the Jews</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/donald-trump-and-the-new-islamophobia/">Donald Trump and the New Islamophobia</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/jews-throw-hissy-fit-over-trumps-decision-to-crack-down-on-illegal-immigrants-the-statue-of-liberty-weeps/">Jews Throw Hissy Fit over Trump&#8217;s decision to crack down on illegal immigrants — &#8216;The Statue of Liberty weeps!&#8217;</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/trump-orders-building-of-mexican-wall-and-immediate-ban-on-muslim-refugees-and-illegal-immigrants/">Trump orders building of Mexican wall and immediate ban on Muslim refugees and illegal immigrants</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/angry-woman-thrown-off-plane-for-attacking-trump-supporter-video-7-mins/">Angry Woman Thrown Off Plane For Attacking Trump Supporter (Video, 7 mins)</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/scientists-develop-fake-news-vaccine-inoculating-people-against-lies/">Scientists develop &#8216;fake news&#8217; vaccine, inoculating people against lies</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/the-trump-speech-that-no-one-heard/">The Trump Speech That No One Heard</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/fear-and-loathing-at-davos-for-donald-trump/">Fear and Loathing at Davos for Donald Trump</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/heres-how-the-trump-presidency-will-play-out/">Here’s how the Trump presidency will play out</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/why-do-jewish-organizations-want-anti-israel-refugees/">Why Do Jewish Organizations Want Anti-Israel Refugees?</a>
+						</li>
+					<li>
+				<a href="https://www.darkmoon.me/2017/trump-now-45th-us-president-cnn-live-news/">Trump now 45th US President . . . CNN Live news</a>
+						</li>
+				</ul>
+		</aside>		<aside id="recent-comments-3" class="widget widget_recent_comments"><h3 class="widget-title">Recent Comments</h3><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">Pat</span> on <a href="https://www.darkmoon.me/2017/under-the-heel-of-the-rothschilds/#comment-947992">Under the Heel of the Rothschilds</a></li><li class="recentcomments"><span class="comment-author-link">Pat</span> on <a href="https://www.darkmoon.me/2017/under-the-heel-of-the-rothschilds/#comment-947991">Under the Heel of the Rothschilds</a></li><li class="recentcomments"><span class="comment-author-link">Harold Smith</span> on <a href="https://www.darkmoon.me/2017/under-the-heel-of-the-rothschilds/#comment-947990">Under the Heel of the Rothschilds</a></li><li class="recentcomments"><span class="comment-author-link">barkingdeer</span> on <a href="https://www.darkmoon.me/2017/under-the-heel-of-the-rothschilds/#comment-947989">Under the Heel of the Rothschilds</a></li><li class="recentcomments"><span class="comment-author-link">Pat</span> on <a href="https://www.darkmoon.me/2017/under-the-heel-of-the-rothschilds/#comment-947988">Under the Heel of the Rothschilds</a></li><li class="recentcomments"><span class="comment-author-link">hp</span> on <a href="https://www.darkmoon.me/2017/under-the-heel-of-the-rothschilds/#comment-947987">Under the Heel of the Rothschilds</a></li><li class="recentcomments"><span class="comment-author-link">Flopot</span> on <a href="https://www.darkmoon.me/2017/under-the-heel-of-the-rothschilds/#comment-947986">Under the Heel of the Rothschilds</a></li><li class="recentcomments"><span class="comment-author-link">Flopot</span> on <a href="https://www.darkmoon.me/2017/under-the-heel-of-the-rothschilds/#comment-947985">Under the Heel of the Rothschilds</a></li><li class="recentcomments"><span class="comment-author-link">Pat</span> on <a href="https://www.darkmoon.me/2017/under-the-heel-of-the-rothschilds/#comment-947984">Under the Heel of the Rothschilds</a></li><li class="recentcomments"><span class="comment-author-link">Flopot</span> on <a href="https://www.darkmoon.me/2017/under-the-heel-of-the-rothschilds/#comment-947983">Under the Heel of the Rothschilds</a></li><li class="recentcomments"><span class="comment-author-link">Flopot</span> on <a href="https://www.darkmoon.me/2017/under-the-heel-of-the-rothschilds/#comment-947982">Under the Heel of the Rothschilds</a></li><li class="recentcomments"><span class="comment-author-link">Mike</span> on <a href="https://www.darkmoon.me/2017/under-the-heel-of-the-rothschilds/#comment-947981">Under the Heel of the Rothschilds</a></li><li class="recentcomments"><span class="comment-author-link">Sardonicus</span> on <a href="https://www.darkmoon.me/2017/under-the-heel-of-the-rothschilds/#comment-947980">Under the Heel of the Rothschilds</a></li><li class="recentcomments"><span class="comment-author-link">Sardonicus</span> on <a href="https://www.darkmoon.me/2017/under-the-heel-of-the-rothschilds/#comment-947979">Under the Heel of the Rothschilds</a></li><li class="recentcomments"><span class="comment-author-link">Pat</span> on <a href="https://www.darkmoon.me/2017/under-the-heel-of-the-rothschilds/#comment-947978">Under the Heel of the Rothschilds</a></li></ul></aside><aside id="listcategorypostswidget-3" class="widget widget_listcategorypostswidget"><h3 class="widget-title">RECOMMENDED READING</h3><ul><li><a href="https://www.darkmoon.me/2017/the-fabulous-wealth-of-the-rothschilds/" title="The Fabulous Wealth of the Rothschilds">The Fabulous Wealth of the Rothschilds</a>  </li><li><a href="https://www.darkmoon.me/2016/truth-is-the-new-hate-speech-list-of-200-forbidden-websites-that-tell-the-truth/" title="Truth is the new Hate Speech: List of 200 Forbidden Websites that Tell the Truth">Truth is the new Hate Speech: List of 200 Forbidden Websites that Tell the Truth</a>  </li><li><a href="https://www.darkmoon.me/2016/the-coudenhove-kalergi-plan-white-genocide-by-design-part-1/" title="The Coudenhove-Kalergi Plan: White Genocide by Design (Part 1)">The Coudenhove-Kalergi Plan: White Genocide by Design (Part 1)</a>  </li><li><a href="https://www.darkmoon.me/2016/the-migrant-rape-epidemic-in-germany-and-the-descent-into-madness/" title="The Migrant Rape Epidemic in Germany and the Descent into Madness">The Migrant Rape Epidemic in Germany and the Descent into Madness</a>  </li><li><a href="https://www.darkmoon.me/2016/the-secret-life-of-a-pedophile-part-1-of-3/" title="The Secret Life of a Pedophile (Part 1 of 3)">The Secret Life of a Pedophile (Part 1 of 3)</a>  </li><li><a href="https://www.darkmoon.me/2016/mind-pollution-the-promotion-of-sexual-perversion-on-national-tv/" title="Mind Pollution: The Promotion of Sexual Perversion on National TV">Mind Pollution: The Promotion of Sexual Perversion on National TV</a>  </li><li><a href="https://www.darkmoon.me/2016/the-wilkomirski-affair-how-a-holocaust-hoaxer-was-rewarded-for-his-lies/" title="The Wilkomirski Affair: How a Holocaust Hoaxer was Rewarded for his Lies">The Wilkomirski Affair: How a Holocaust Hoaxer was Rewarded for his Lies</a>  </li><li><a href="https://www.darkmoon.me/2016/rape-jihad-dark-days-for-europe-part-2-of-2/" title="Rape Jihad: Dark Days for Europe (Part 2 of 2)">Rape Jihad: Dark Days for Europe (Part 2 of 2)</a>  </li><li><a href="https://www.darkmoon.me/2016/rape-jihad-dark-days-for-europe-part-1-of-2/" title="Rape Jihad: Dark Days for Europe (Part 1 of 2)">Rape Jihad: Dark Days for Europe (Part 1 of 2)</a>  </li><li><a href="https://www.darkmoon.me/2015/torture-and-testicle-crushing-at-nuremberg/" title="Torture and Testicle Crushing at Nuremberg">Torture and Testicle Crushing at Nuremberg</a>  </li><li><a href="https://www.darkmoon.me/2015/german-victims-how-the-allied-victors-of-wwii-tortured-and-killed-their-german-prisoners-of-war-part-2-of-2/" title="German Victims: How the Allied Victors of WWII Tortured and Killed their German Prisoners of War (Part  2 of 2)">German Victims: How the Allied Victors of WWII Tortured and Killed their German Prisoners of War (Part  2 of 2)</a>  </li><li><a href="https://www.darkmoon.me/2015/german-victims-how-the-allied-victors-of-wwii-tortured-and-killed-their-german-prisoners-part-1-of-2/" title="German Victims : How the Allied Victors of WWII tortured and killed their German prisoners (Part 1 of 2)">German Victims : How the Allied Victors of WWII tortured and killed their German prisoners (Part 1 of 2)</a>  </li><li><a href="https://www.darkmoon.me/2015/stalins-willing-executioners-jews-hostile-elite-ussr/" title="Stalin&#8217;s Willing Executioners: Jews as a Hostile Elite in the USSR — by Kevin MacDonald">Stalin&#8217;s Willing Executioners: Jews as a Hostile Elite in the USSR — by Kevin MacDonald</a>  </li><li><a href="https://www.darkmoon.me/2015/the-first-jewish-lie-the-old-testament-fabrication-that-the-israelites-were-slaves-in-egypt/" title="The First Jewish Lie: The Old Testament fabrication that the Israelites were slaves in Egypt — John Kaminski">The First Jewish Lie: The Old Testament fabrication that the Israelites were slaves in Egypt — John Kaminski</a>  </li><li><a href="https://www.darkmoon.me/2014/china-jews/" title="China and the Jews">China and the Jews</a>  </li><li><a href="https://www.darkmoon.me/2014/devils-cauldron/" title="Hellstorm: The Devil&#8217;s Cauldron">Hellstorm: The Devil&#8217;s Cauldron</a>  </li><li><a href="https://www.darkmoon.me/2014/the-jewish-question-a-problem-without-a-solution-part-2-by-lasha-darkmoon/" title="The Jewish Question: A problem without a solution (Part 2) ">The Jewish Question: A problem without a solution (Part 2)</a>  </li><li><a href="https://www.darkmoon.me/2014/the-jewish-question-a-problem-without-a-solution-part-1-by-lasha-darkmoon/" title="The Jewish Question: A problem without a solution (Part 1) ">The Jewish Question: A problem without a solution (Part 1)</a>  </li><li><a href="https://www.darkmoon.me/2014/pornography-as-a-secret-weapon-by-lasha-darkmoon/" title="PORNOGRAPHY AS A SECRET WEAPON">PORNOGRAPHY AS A SECRET WEAPON</a>  </li><li><a href="https://www.darkmoon.me/2014/secret-surveillance/" title="Secret Surveillance">Secret Surveillance</a>  </li><li><a href="https://www.darkmoon.me/2014/sex-plague-the-normalization-of-deviance-and-depravity-by-lasha-darkmoon/" title="SEX PLAGUE: THE NORMALIZATION OF DEVIANCE AND DEPRAVITY">SEX PLAGUE: THE NORMALIZATION OF DEVIANCE AND DEPRAVITY</a>  </li><li><a href="https://www.darkmoon.me/2014/the-jewish-problem-in-germany-by-dr-friedrich-karl-wiehe/" title="Germany and the Jewish Question">Germany and the Jewish Question</a>  </li><li><a href="https://www.darkmoon.me/2013/under-jewish-rule-by-lasha-darkmoon/" title="UNDER JEWISH RULE">UNDER JEWISH RULE</a>  </li><li><a href="https://www.darkmoon.me/2013/secret-sex-life-of-the-jews-by-lasha-darkmoon/" title="SECRET SEX LIFE OF THE JEWS">SECRET SEX LIFE OF THE JEWS</a>  </li><li><a href="https://www.darkmoon.me/2013/the-liberation-of-the-death-camps/" title="The Liberation of the Death Camps">The Liberation of the Death Camps</a>  </li><li><a href="https://www.darkmoon.me/2013/the-sexual-decadence-of-weimar-germany/" title="THE SEXUAL DECADENCE OF WEIMAR GERMANY">THE SEXUAL DECADENCE OF WEIMAR GERMANY</a>  </li><li><a href="https://www.darkmoon.me/2013/we-are-all-russians-now-by-an-unknown-author/" title="We Are All Russians Now — by an Unknown Author ">We Are All Russians Now — by an Unknown Author</a>  </li><li><a href="https://www.darkmoon.me/2013/the-judeo-russian-mafia-and-the-bloodbath-to-come-by-dr-lasha-darkmoon/" title="THE JUDEO-RUSSIAN MAFIA AND THE BLOODBATH TO COME, by Dr Lasha Darkmoon">THE JUDEO-RUSSIAN MAFIA AND THE BLOODBATH TO COME, by Dr Lasha Darkmoon</a>  </li><li><a href="https://www.darkmoon.me/2013/nterview-with-a-greek-holocaust-denier/" title="INTERVIEW WITH A GREEK HOLOCAUST DENIER">INTERVIEW WITH A GREEK HOLOCAUST DENIER</a>  </li><li><a href="https://www.darkmoon.me/2013/the-mass-murder-of-russian-christians-and-the-destruction-of-their-churches-by-lasha-darkmoon/" title="The Mass Murder of Russian Christians and the Destruction of their Churches">The Mass Murder of Russian Christians and the Destruction of their Churches</a>  </li><li><a href="https://www.darkmoon.me/2013/satans-secret-agents-the-frankfurt-school-and-their-evil-agenda/" title="Satan&#8217;s Secret Agents: The Frankfurt School and their Evil Agenda">Satan&#8217;s Secret Agents: The Frankfurt School and their Evil Agenda</a>  </li><li><a href="https://www.darkmoon.me/2013/the-sexual-subversion-of-america-part-2-of-2/" title="The Sexual Subversion of America (Part 2 )">The Sexual Subversion of America (Part 2 )</a>  </li><li><a href="https://www.darkmoon.me/2013/the-sexual-subversion-of-america-part-1/" title="THE Sexual Subversion of America  (Part 1)">THE Sexual Subversion of America  (Part 1)</a>  </li><li><a href="https://www.darkmoon.me/2012/child-porn-and-pedophilia-to-be-legal-soon/" title="Child porn and pedophilia to be legal soon">Child porn and pedophilia to be legal soon</a>  </li><li><a href="https://www.darkmoon.me/2012/irans-secret-weapon-by-dr-robert-faurisson/" title="IRAN&#8217;S SECRET WEAPON, by Dr Robert Faurisson">IRAN&#8217;S SECRET WEAPON, by Dr Robert Faurisson</a>  </li><li><a href="https://www.darkmoon.me/2012/here-comes-evil/" title="HERE COMES EVIL">HERE COMES EVIL</a>  </li><li><a href="https://www.darkmoon.me/2012/pornographys-effect-on-the-brain-part-2/" title="Pornography&#8217;s Effect on the Brain, (PART 2)">Pornography&#8217;s Effect on the Brain, (PART 2)</a>  </li><li><a href="https://www.darkmoon.me/2012/pornographys-effect-on-the-brain-part-1/" title="Pornography&#8217;s Effect on the Brain, (PART 1)">Pornography&#8217;s Effect on the Brain, (PART 1)</a>  </li><li><a href="https://www.darkmoon.me/2012/masters-of-porn-the-systematic-promotion-of-sexual-deviance-by-dr-lasha-darkmoon/" title="Masters of Porn: The Systematic Promotion of Sexual Deviance">Masters of Porn: The Systematic Promotion of Sexual Deviance</a>  </li><li><a href="https://www.darkmoon.me/2011/crimes-of-the-bolsheviks/" title="Crimes of the Bolsheviks">Crimes of the Bolsheviks</a>  </li><li><a href="https://www.darkmoon.me/2011/darkmoon-upon-america-by-israel-shamir-response-pictures-and-captions-by-lasha-darkmoon/" title="DARKMOON UPON AMERICA, BY ISRAEL SHAMIR: A Debate between Israel Shamir and Lasha Darkmoon">DARKMOON UPON AMERICA, BY ISRAEL SHAMIR: A Debate between Israel Shamir and Lasha Darkmoon</a>  </li><li><a href="https://www.darkmoon.me/2011/america-vanquished-part-2-america-under-jewish-rule-by-dr-lasha-darkmoon/" title="AMERICA VANQUISHED, Part 2: America under Jewish Rule">AMERICA VANQUISHED, Part 2: America under Jewish Rule</a>  </li><li><a href="https://www.darkmoon.me/2011/america-vanquished-part-1-america-as-an-israeli-colony/" title="AMERICA VANQUISHED, Part 1: America as an Israeli Colony">AMERICA VANQUISHED, Part 1: America as an Israeli Colony</a>  </li></ul><a href="https://www.darkmoon.me/category/recommended-reading/"> </a></aside>		</div>
+	</div><!-- #secondary -->
+			</div><!-- close .*-inner (main-content or sidebar, depending if sidebar is used) -->
+		</div><!-- close .row -->
+	</div><!-- close .container -->
+</div><!-- close .main-content -->
+
+	<div id="footer-area">
+		<div class="container footer-inner">
+			<div class="row">
+				
+	
+	<div class="footer-widget-area">
+				<div class="col-sm-4 footer-widget" role="complementary">
+			<div id="text-3" class="widget widget_text"><h3 class="widgettitle">About</h3>			<div class="textwidget"><p>This is the website of Lasha Darkmoon, an anglo-American academic with higher degrees in Classics who lives and works in England. You can <a href="http://www.darkmoon.me/about/">read more about Darkmoon here</a>.</p>
+</div>
+		</div>		</div><!-- .widget-area .first -->
+		
+				<div class="col-sm-4 footer-widget" role="complementary">
+			<div id="wysija-5" class="widget widget_wysija"><h3 class="widgettitle">Subscribe to our Newsletter</h3><div class="widget_wysija_cont"><div id="msg-form-wysija-5" class="wysija-msg ajax"></div><form id="form-wysija-5" method="post" action="#wysija" class="widget_wysija">
+
+Subscribe to get important new posts and other updates via our occasional newsletter.
+<p class="wysija-paragraph">
+    
+    
+    	<input type="text" name="wysija[user][email]" class="wysija-input validate[required,custom[email]]" title="Email" placeholder="Email" value=""/>
+    
+    
+    
+    <span class="abs-req">
+        <input type="text" name="wysija[user][abs][email]" class="wysija-input validated[abs][email]" value=""/>
+    </span>
+    
+</p>
+<input class="wysija-submit wysija-submit-field" type="submit" value="Subscribe"/>
+
+    <input type="hidden" name="form_id" value="1"/>
+    <input type="hidden" name="action" value="save"/>
+    <input type="hidden" name="controller" value="subscribers"/>
+    <input type="hidden" value="1" name="wysija-page"/>
+
+    
+        <input type="hidden" name="wysija[user_list][list_ids]" value="3"/>
+    
+ </form></div></div>		</div><!-- .widget-area .second -->
+		
+				<div class="col-sm-4 footer-widget" role="complementary">
+			<div id="meta-4" class="widget widget_meta"><h3 class="widgettitle">Meta</h3>			<ul>
+						<li><a rel="nofollow" href="https://www.darkmoon.me/wp-login.php">Log in</a></li>
+			<li><a href="https://www.darkmoon.me/feed/">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="https://www.darkmoon.me/comments/feed/">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="https://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>			</ul>
+			</div>		</div><!-- .widget-area .third -->
+			</div>			</div>
+		</div>
+	<footer id="colophon" class="site-footer" role="contentinfo">
+			<div class="site-info container">
+				<div class="row">
+										<nav role="navigation" class="col-md-6">
+						<ul id="menu-footer" class="nav footer-nav clearfix"><li id="menu-item-20371" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20371"><a href="https://www.darkmoon.me/site-policies-and-guidelines/">SITE  POLICIES  AND  GUIDELINES</a></li>
+</ul>					</nav>
+					<div class="copyright col-md-6">
+						<a href="http://www.darkmoon.me/" title="Darkmoon">Darkmoon</a>  All rights reserved.											</div>
+				</div>
+			</div><!-- .site-info -->
+			<div class="scroll-to-top"><i class="fa fa-angle-up"></i></div><!-- .scroll-to-top -->
+		</footer><!-- #colophon -->
+	</div>
+</div><!-- #page -->
+
+<script type='text/javascript' src='https://www.darkmoon.me/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js,qver=3.51.0-2014.06.20.pagespeed.jm.RVBOol6lkO.js'></script>
+<script type='text/javascript'>var _wpcf7={"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}},"cached":"1"};</script>
+<script src="https://www.darkmoon.me/wp-content,_plugins,_contact-form-7,_includes,_js,_scripts.js,qver==4.6.1+wp-content,_plugins,_simple-share-buttons-adder,_js,_ssba.min.js,qver==4.7.2+wp-content,_themes,_sparkling,_inc,_js,_skip-link-focus-fix.js,qver==20140222+wp-content,_themes,_darkmoon,_darkmoon.js,qver==20150322+wp-includes,_js,_wp-embed.min.js,qver==4.7.2+wp-content,_plugins,_wysija-newsletters,_js,_validate,_languages,_jquery.validationEngine-en.js,qver==2.7.7.pagespeed.jc.8BfMQGErhG.js"></script><script>eval(mod_pagespeed_usKlsPZ3Sx);</script>
+<script>eval(mod_pagespeed_KOYvlkPyBZ);</script>
+<script>eval(mod_pagespeed_jyTzWkyXmj);</script>
+<script>eval(mod_pagespeed_4ifE$wzGJP);</script>
+<script>eval(mod_pagespeed_vvygFO_kog);</script>
+<script>eval(mod_pagespeed_xmwjWdqW2O);</script>
+<script type='text/javascript' src='https://www.darkmoon.me/wp-content/plugins/wysija-newsletters/js/validate/jquery.validationEngine.js,qver=2.7.7.pagespeed.jm.ggPIuRP0RD.js'></script>
+<script type='text/javascript'>var wysijaAJAX={"action":"wysija_ajax","controller":"subscribers","ajaxurl":"https:\/\/www.darkmoon.me\/wp-admin\/admin-ajax.php","loadingTrans":"Loading...","is_rtl":""};</script>
+<script type='text/javascript' src='https://www.darkmoon.me/wp-content/plugins/wysija-newsletters/js/front-subscribers.js,qver=2.7.7.pagespeed.ce.--KGScC5F9.js'></script>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"1e9a55a7c3","applicationID":"13658277","transactionName":"MgBTYkcCDUsCAU0KDgtKcFVBCgxWTAtXBwQd","queueTime":0,"applicationTime":230,"atts":"HkdEFA8YHhRBAxtZGhgY","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
+<!--Cached using Nginx-Helper on 2017-02-27 00:46:17. It took 90 queries executed in 0.247 seconds.-->
+<!--Visit http://wordpress.org/extend/plugins/nginx-helper/faq/ for more details-->
