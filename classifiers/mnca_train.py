@@ -10,7 +10,7 @@ from sklearn.model_selection import KFold
 from sklearn.metrics import accuracy_score
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
-from xgboost import XGBClassifier, plot_importance
+from sklearn.ensemble import AdaBoostClassifier
 from sklearn.externals import joblib
 from sklearn.pipeline import Pipeline
 
@@ -146,7 +146,7 @@ def pct_allcaps(title):
         return(0)
     
 def train_classifiers():
-    """Function trains a MNB and XGB classifier on an even split of credible/
+    """Function trains a MNB and AdaBoost ensemble classifier on an even split of credible/
     non-credible news articles. This function takes care of the sampling and
     preprocessing and pickles the two classification models and outputs a
     JSON file containing important statistics for article classification in the
@@ -250,7 +250,7 @@ def train_classifiers():
                             ('clf', MultinomialNB())])
 
     mnb_scores=[]
-    xgb_scores=[]
+    ada_scores=[]
     k_fold = KFold(n_splits=5, shuffle=True)
 
     for train_index, test_index in k_fold.split(even_articles):
@@ -261,10 +261,9 @@ def train_classifiers():
                             even_articles.iloc[train_index]['text_sentiment'].values,
                             even_articles.iloc[train_index]['title_sentiment'].values])
         train_y = even_articles.iloc[train_index]['label'].values
-
+        
+        
         test_text = even_articles.iloc[test_index]['filtered_text'].values
-        test_counts = count_vect.transform(test_text)
-        test_tfidf = tfidf.transform(test_counts)
         test_x = np.array([even_articles.iloc[test_index]['pct_allcaps_title'].values,
                            even_articles.iloc[test_index]['pct_punc_quesexcl_text'].values,
                            even_articles.iloc[test_index]['pct_char_quesexcl_title'].values,
@@ -278,17 +277,17 @@ def train_classifiers():
         mnb_score = accuracy_score(test_y, mnb_predictions)
         mnb_scores.append(mnb_score)
 
-        #XGBOOST
-        xgb_clf = XGBClassifier(max_depth=3, n_estimators=100).fit(train_x.T, train_y)
-        xgb_predictions = xgb_clf.predict(test_x.T)
-        xgb_score = accuracy_score(test_y, xgb_predictions)
-        xgb_scores.append(xgb_score)
+        #ADABOOST
+        ada_clf = AdaBoostClassifier(n_estimators=100).fit(train_x.T, train_y)
+        ada_predictions = ada_clf.predict(test_x.T)
+        ada_score = accuracy_score(test_y, ada_predictions)
+        ada_scores.append(ada_score)
 
     perform_statistics = {}
 
     #Calculate classification accuracy for ensemble weighting    
     perform_statistics['mnb_accuracy'] = sum(mnb_scores)/len(mnb_scores)
-    perform_statistics['xgb_accuracy'] = sum(xgb_scores)/len(xgb_scores)
+    perform_statistics['ada_accuracy'] = sum(ada_scores)/len(ada_scores)
 
     #Calculate mean scores for cred vs. noncred "tonal" features to assist with interpreting the model's decisions
     perform_statistics['mean_sent_score_text_cred'] = np.mean(even_articles['text_sentiment'][even_articles['label']==0])
@@ -310,10 +309,10 @@ def train_classifiers():
     train_y = even_articles['label'].values
 
     mnb_clf = mnb_clf.fit(even_articles['filtered_text'], train_y)
-    xgb_clf = XGBClassifier(max_depth=3, n_estimators=100).fit(train_x.T, train_y)
+    ada_clf = AdaBoostClassifier(n_estimators=100).fit(train_x.T, train_y)
 
     joblib.dump(mnb_clf, 'mnb_clf.pkl')
-    joblib.dump(xgb_clf, 'xgb_clf.pkl')
+    joblib.dump(ada_clf, 'ada_clf.pkl')
 
     with open('DONOTDELETE.json', 'w') as outfile:
         json.dump(perform_statistics, outfile)

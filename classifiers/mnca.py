@@ -2,6 +2,7 @@ import requests
 import os
 import json
 import pandas as pd
+import numpy as np
 from bs4 import BeautifulSoup
 import schedule
 import datetime
@@ -78,20 +79,20 @@ def classify_article(article):
     with open('DONOTDELETE.json') as json_data:
         perform_statistics = json.load(json_data)
 
-    xgb_feats = [article['pct_allcaps_title'],
+    ada_feats = [article['pct_allcaps_title'],
                  article['pct_punc_quesexcl_text'],
                  article['pct_char_quesexcl_title'],
                  article['text_sentiment'],
                  article['title_sentiment']]
     
     mnb_clf = joblib.load('mnb_clf.pkl')
-    xgb_clf = joblib.load('xgb_clf.pkl')
+    ada_clf = joblib.load('ada_clf.pkl')
     
     mnb_prob = mnb_clf.predict_proba([article['filtered_text']])
-    xgb_prob = xgb_clf.predict_proba(xgb_feats)
+    ada_prob = ada_clf.predict_proba([np.asarray(ada_feats)])
     
     classification = {}
-    classification["label_prob"] = [(((perform_statistics['mnb_accuracy']*mnb_prob[0][0])+(perform_statistics['xgb_accuracy']*xgb_prob[0][0]))/(perform_statistics['mnb_accuracy']+perform_statistics['xgb_accuracy'])), (((perform_statistics['mnb_accuracy']*mnb_prob[0][1])+(perform_statistics['xgb_accuracy']*xgb_prob[0][1]))/(perform_statistics['mnb_accuracy']+perform_statistics['xgb_accuracy']))]
+    classification["label_prob"] = [(((perform_statistics['mnb_accuracy']*mnb_prob[0][0])+(perform_statistics['ada_accuracy']*ada_prob[0][0]))/(perform_statistics['mnb_accuracy']+perform_statistics['ada_accuracy'])), (((perform_statistics['mnb_accuracy']*mnb_prob[0][1])+(perform_statistics['ada_accuracy']*ada_prob[0][1]))/(perform_statistics['mnb_accuracy']+perform_statistics['ada_accuracy']))]
     if classification["label_prob"][1] > classification["label_prob"][0]:
         classification["label"] = "Non-Credible"
     else:
@@ -127,12 +128,12 @@ def classify_article(article):
     else:
         tone_feat_classifications.append(0)
         
-    if (tone_feat_classifications[0]*xgb_clf.feature_importances_[0] + tone_feat_classifications[1]*xgb_clf.feature_importances_[1] + tone_feat_classifications[2]*xgb_clf.feature_importances_[2])/( xgb_clf.feature_importances_[0] + xgb_clf.feature_importances_[1] + xgb_clf.feature_importances_[2]) > 0.5:
+    if (tone_feat_classifications[0]*ada_clf.feature_importances_[0] + tone_feat_classifications[1]*ada_clf.feature_importances_[1] + tone_feat_classifications[2]*ada_clf.feature_importances_[2])/( ada_clf.feature_importances_[0] + ada_clf.feature_importances_[1] + ada_clf.feature_importances_[2]) > 0.5:
         convention_pred = "Non-Credible"
     else:
         convention_pred = "Credible"
         
-    if (tone_feat_classifications[3]*xgb_clf.feature_importances_[3] + tone_feat_classifications[4]*xgb_clf.feature_importances_[4])/( xgb_clf.feature_importances_[3] + xgb_clf.feature_importances_[4]) > 0.5:
+    if (tone_feat_classifications[3]*ada_clf.feature_importances_[3] + tone_feat_classifications[4]*ada_clf.feature_importances_[4])/( ada_clf.feature_importances_[3] + ada_clf.feature_importances_[4]) > 0.5:
         sentiment_pred = "Non-Credible"
     else:
         sentiment_pred = "Credible"
